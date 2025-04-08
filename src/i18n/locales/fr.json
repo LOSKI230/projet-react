@@ -1,0 +1,18 @@
+{
+    "title": "CryptoMarché",
+    "search_placeholder": "Rechercher une cryptomonnaie...",
+    "price": "Prix",
+    "name" : "Nom",
+    "market_cap": "Capitalisation",
+    "change_24h": "Variation 24h",
+    "back": "Retour à l’accueil",
+    "page": "Page",
+    "prev": "Précédent",
+    "next": "Suivant",
+    "loading": "Chargement...",
+    "not_found": "Coin introuvable.",
+    "Cryptocurrency_market":"Marché des cryptomonnaies",
+    "Prix_actuel":"Prix actuel"
+  }
+  
+  

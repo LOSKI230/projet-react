@@ -1,18 +1,19 @@
-
-import './App.css'
-import ApiRecherche from './rechercheapi'
-import Navbar from './navbar'
+import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
+import AppRouter from "./router";
+import Navbar from './composants/organisms/Navbar';
 
-
-
-  function App() {
-    return (
-      <div className="p-4">
-        <Navbar />
-        <ApiRecherche />
+const App: React.FC = () => {
+  return (
+    <BrowserRouter>
+      <Navbar />
+      <div className="container mt-4">
+        <AppRouter />
       </div>
-    );
-  }
-  
-  export default App;
+    </BrowserRouter>
+  );
+};
+
+export default App;

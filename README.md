@@ -1,54 +1,42 @@
-# React + TypeScript + Vite
+# 🪙 CryptoMarket Viewer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Une application React + TypeScript qui permet d'explorer les cryptomonnaies en temps réel via l'API [CoinGecko](https://www.coingecko.com/).
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🔍 Fonctionnalités
 
-## Expanding the ESLint configuration
+- 🔄 Liste paginée des cryptos
+- 🔍 Recherche par nom/symbole
+- 📊 Détails de chaque cryptomonnaie
+- 🌐 Interface multilingue (Français 🇫🇷 / Anglais 🇬🇧)
+- ⚙️ Architecture modulaire avec Atomic Design
+- 🚀 Navigation avec React Router
+- ♻️ Données typées en TypeScript
+- 💡 Rendu sans erreurs console / sans `any`
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## 🧱 Technologies
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- React + Vite
+- TypeScript (Strict Mode)
+- React Router DOM
+- react-i18next
+- Bootstrap
+- CoinGecko Public API
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+## 🚀 Installation
+
+```bash
+# Cloner le projet
+git clone https://github.com/<utilisateur>/projet-react.git
+cd projet-react
+
+# Installer les dépendances
+npm install
+
+# Lancer le projet en développement
+npm run dev
