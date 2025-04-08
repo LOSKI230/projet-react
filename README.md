@@ -4,20 +4,20 @@ Une application React + TypeScript qui permet d'explorer les cryptomonnaies en t
 
 ---
 
-## 🔍 Fonctionnalités
+## Fonctionnalités
 
-- 🔄 Liste paginée des cryptos
-- 🔍 Recherche par nom/symbole
-- 📊 Détails de chaque cryptomonnaie
-- 🌐 Interface multilingue (Français 🇫🇷 / Anglais 🇬🇧)
-- ⚙️ Architecture modulaire avec Atomic Design
-- 🚀 Navigation avec React Router
-- ♻️ Données typées en TypeScript
-- 💡 Rendu sans erreurs console / sans `any`
+- Liste paginée des cryptos
+- Recherche par nom
+- Détails de chaque cryptomonnaie
+- Interface multilingue (Français 🇫🇷 / Anglais 🇬🇧)
+- Architecture modulaire avec Atomic Design
+- Navigation avec React Router
+- Données typées en TypeScript
+- Rendu sans erreurs console / sans `any`
 
 ---
 
-## 🧱 Technologies
+## Technologies
 
 - React + Vite
 - TypeScript (Strict Mode)
@@ -28,7 +28,7 @@ Une application React + TypeScript qui permet d'explorer les cryptomonnaies en t
 
 ---
 
-## 🚀 Installation
+## Installation
 
 ```bash
 # Cloner le projet
