@@ -6,25 +6,21 @@ import CoinRow from "../molecules/CoinLigne";
 import { useTranslation } from "react-i18next";
 
 const CoinList: React.FC = () => {
-  const [coins, setCoins] = useState<Coin[]>([]);
+  const [allCoins, setAllCoins] = useState<Coin[]>([]);
+  const [displayedCoins, setDisplayedCoins] = useState<Coin[]>([]);
   const [search, setSearch] = useState("");
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
-  const {t} = useTranslation();
+  const { t } = useTranslation();
+
+  const coinsPerPage = 10;
 
   const fetchCoins = async () => {
     try {
       setLoading(true);
-
-      if (search.trim().length > 1) {
-        
-        const results = await searchCoins(search.trim());
-        setCoins(results);
-      } else {
-        //Liste paginée
-        const data = await getMarketCoins(page);
-        setCoins(data);
-      }
+      const data = await getMarketCoins(1, 250); // on récupère tout une seule fois
+      setAllCoins(data);
+      setDisplayedCoins(data.slice(0, coinsPerPage));
     } catch (error) {
       console.error("Erreur lors du chargement des coins", error);
     } finally {
@@ -34,21 +30,39 @@ const CoinList: React.FC = () => {
 
   useEffect(() => {
     fetchCoins();
-  }, [page, search]);
+  }, []);
+
+  useEffect(() => {
+    if (search.trim().length > 1) {
+      const filtered = allCoins.filter((coin) =>
+        coin.name.toLowerCase().includes(search.toLowerCase()) ||
+        coin.symbol.toLowerCase().includes(search.toLowerCase())
+      );
+      setDisplayedCoins(filtered);
+    } else {
+      const start = (page - 1) * coinsPerPage;
+      const end = start + coinsPerPage;
+      setDisplayedCoins(allCoins.slice(start, end));
+    }
+  }, [search, page, allCoins]);
 
   const handlePrevious = () => {
     if (page > 1) setPage((prev) => prev - 1);
   };
 
   const handleNext = () => {
-    setPage((prev) => prev + 1);
+    const maxPage = Math.ceil(allCoins.length / coinsPerPage);
+    if (page < maxPage) setPage((prev) => prev + 1);
   };
 
   return (
     <div className="container">
       <SearchInput
         value={search}
-        onChange={setSearch}
+        onChange={(val) => {
+          setSearch(val);
+          setPage(1); // reset page on search
+        }}
         placeholder="Rechercher une cryptomonnaie..."
       />
 
@@ -68,18 +82,18 @@ const CoinList: React.FC = () => {
                 </tr>
               </thead>
               <tbody>
-                {coins.length === 0 ? (
+                {displayedCoins.length === 0 ? (
                   <tr>
                     <td colSpan={5} className="text-center">
                       Aucun résultat trouvé.
                     </td>
                   </tr>
                 ) : (
-                  coins.map((coin, index) => (
+                  displayedCoins.map((coin, index) => (
                     <CoinRow
                       key={coin.id}
                       coin={coin}
-                      index={search ? index : index + (page - 1) * 10}
+                      index={search ? index : index + (page - 1) * coinsPerPage}
                     />
                   ))
                 )}
@@ -100,6 +114,7 @@ const CoinList: React.FC = () => {
               <span>Page {page}</span>
               <button
                 onClick={handleNext}
+                disabled={page >= Math.ceil(allCoins.length / coinsPerPage)}
                 className="btn btn-outline-primary"
               >
                 {t("next")} ➡
