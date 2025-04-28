@@ -1,4 +1,4 @@
-# 🪙 CryptoMarket Viewer
+n# 🪙 CryptoMarket Viewer
 
 Une application React + TypeScript qui permet d'explorer les cryptomonnaies en temps réel via l'API [CoinGecko](https://www.coingecko.com/).
 

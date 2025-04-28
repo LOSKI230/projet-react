@@ -27,7 +27,11 @@ export const getMarketCoins = async (
 };
 
 export const getCoinDetails = async (id: string): Promise<CoinDetail> => {
-  const response = await axios.get(`${BASE_URL}/coins/${id}`);
+  // 1. Appel de l’API de recherche
+  const response = await axios.get(`${BASE_URL}/coins/${id}`,{
+    headers: {
+      "x-cg-demo-api-key": "CG-TehMbGkPV51EGRu4oGRG41yG",
+  }});
   return response.data;
 };
 
