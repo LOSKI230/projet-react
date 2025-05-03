@@ -1,7 +1,7 @@
 import axios from "axios";
 import { Coin, CoinDetail,SearchedCoin } from "../types/coin";
 
-const BASE_URL = 'https://api.coingecko.com/api/v3';
+const BASE_URL = '/api';
 
 export const getMarketCoins = async (
   page: number,
