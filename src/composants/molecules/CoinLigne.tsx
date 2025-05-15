@@ -24,7 +24,7 @@ const CoinRow: React.FC<Props> = ({ coin, index }) => {
           {coin.image ? (
             <img src={coin.image} alt={coin.name || "Inconnu"} width="24" height="24" />
           ) : (
-            <span>📷</span> // Tu peux changer par une icône ou texte si pas d'image
+            <span>📷</span> 
           )}
           <span className="fw-bold">{coin.name || "Inconnu"}</span>
           <span className="text-muted text-uppercase">{coin.symbol || "?"}</span>

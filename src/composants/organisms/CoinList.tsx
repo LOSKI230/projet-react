@@ -61,7 +61,7 @@ const CoinList: React.FC = () => {
         value={search}
         onChange={(val) => {
           setSearch(val);
-          setPage(1); // reset page on search
+          setPage(1); 
         }}
         placeholder="Rechercher une cryptomonnaie..."
       />
